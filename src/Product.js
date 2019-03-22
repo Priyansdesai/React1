@@ -19,11 +19,11 @@ const Product = props =>{
   		);
 }
 function addToCart (props) {
-  if (numberClicks >= props.limit  ) {
-    alert("There are " + numberClicks + " apples in your cart.");
-  }
-  else if (props.limit === 0) {
+  if (props.limit === 0) {
   	alert('Out of stock!')
+  }
+  else if (numberClicks >= props.limit  ) {
+    alert("There are " + numberClicks + " " + props.name + " in your cart.");
   }
   else {
   	numberClicks++;
