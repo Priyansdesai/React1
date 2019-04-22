@@ -3,7 +3,6 @@ import "./styles/cart.css";
 import Product from "./Product.js";
 import ProductData from "./Data";
 import Receipt from "./Receipt.jsx";
-import sqlite from 'sqlite';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -22,7 +21,6 @@ class Cart extends React.Component {
     };
     this.handleAddToCart = this.handleAddToCart.bind(this)
     this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleAddToCart(productName, price) {
       let a = [...this.state.cartItems];
@@ -68,7 +66,7 @@ class Cart extends React.Component {
 					<div class="section"><span>4</span>Services</div>
 					<div class="inner-wrap">
           {this.renderProducts()}
-         <Receipt items= {this.state.cartItems} discount={this.state.discount} total={this.state.total} tax={this.total.tax} />
+         <Receipt items= {this.state.cartItems} discount={this.state.discount}/>
         </div>
         <div class="section"><span>5</span>Discount Code</div>
         <div class="inner-wrap">
@@ -83,26 +81,6 @@ class Cart extends React.Component {
         </form>
       </div>  
     );
-  }
-  renderTotal()
-   {this.renderTax()
-    this.setState(prevState => ({
-      tax: prevState.total/0.05
-    })); 
-  }
-  renderTax() {
-    let total = 0
-    for (let i = 0; i <this.state.cartItems.length; i++) {
-      total += (this.state.cartItems[i].price * this.state.cartItems[i].count)
-    }
-    this.setState(prevState => ({
-      total: ((prevState.total + total)*0.05) - (prevState.discount)
-    })); 
-  }
-  async handleSubmit(event) {
-    event.preventDefault()
-    const db = await sqlite.open('../db/test.db');
-    db.run(`INSERT INTO booking VALUES(${this.state.name}, ${this.state.email}, ${this.state.number}, ${this.state.total}, ${this.state.address};`)
   }
   handleRemoveFromCart (productName){
     let a = [...this.state.cartItems];
