@@ -1,6 +1,6 @@
 .receipt {
     border: 2px solid #bbb;
-    min-width: 45%;
+    min-width: 25%;
     padding: 25px;
 }
 
@@ -19,4 +19,5 @@
     font-family: "Anonymous Pro", monospace;
     font-size: 135%;
     margin-top: 25px;
+    margin-right: 25px;
 }

@@ -21,25 +21,18 @@ class Receipt extends React.Component {
 
         <div className="receipt-item">
           <div className="receipt-text">Tax:</div>
-          <div className="receipt-text">${(this.renderTax()).toFixed(2)}</div>
+          <div className="receipt-text">${(this.props.tax)}</div>
+        </div>
+        <div className="receipt-item">
+          <div className="receipt-text">Discount:</div>
+          <div className="receipt-text">${this.props.discount}</div>
         </div>
         <div className="receipt-item">
           <div className="total">Total:</div>
-          <div className="total">${(this.renderTotal()).toFixed(2)}</div>
+          <div className="total">${(this.props.total)}</div>
         </div>
       </div>
     );
-  }
-
-  renderTotal() {
-    return this.renderTax()/0.05
-  }
-  renderTax() {
-    let total = 0
-    for (let i = 0; i <this.props.items.length; i++) {
-      total += (this.props.items[i].price * this.props.items[i].count)
-    }
-    return (total * 0.05)
   }
 }
 export default Receipt;

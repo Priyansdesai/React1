@@ -1,22 +1,17 @@
 const ProductData = { 
     products: [ 
         {
-            name: "Apple",
-            cost: 1.0,
-            stock: 100
-        },
-        {
-            name: "Banana",
-            cost: 0.5,
+            name: "Meals",
+            cost: 30.0,
             stock: 20
         },
         {
-            name: "Orange",
-            cost: 2.0,
+            name: "Chaffeur",
+            cost: 60.0,
             stock: 5
         },
         {
-            name: "Durian",
+            name: "Sightseeing",
             cost: 5.0,
             stock: 0
         },
